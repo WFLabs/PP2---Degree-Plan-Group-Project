@@ -38,10 +38,13 @@ int main() {
 
 	cout << "We're now back in main()" << endl;
 	s1->SelectedMajor();
+	cout << "The address of the object is " << &s1 << endl;
 
 	cout << "Now we're pulling from a vector" << endl;
 	vStudentCourses.push_back(*s1);						// Here's where I'm stuck. 
 	vStudentCourses.at(0).SelectedMajor();				// For whatever reason, it's creating a new obj.
+	cout << "The address of the object in the vector is  " << &vStudentCourses.at(0) << endl;
+
 
 	for (auto stud : vStudentCourses) {					// Same issue in a ranged loop.	
 		stud.SelectedMajor();							
