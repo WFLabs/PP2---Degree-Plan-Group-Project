@@ -1,3 +1,4 @@
+/*
 #include "Major.h"
 #include <iostream>
 #include <iomanip>

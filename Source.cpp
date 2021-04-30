@@ -7,7 +7,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "Major.h"
+#include "Student.h"
 
 struct Schedule {
 	string DayOfWeek;
@@ -19,8 +19,19 @@ struct Schedule {
 //  type StudentSchedule();
 
 int main() {
-	
+	vector<Student> vStudentCourses;
 
+	Student* s1 = new Student();
+
+	s1->SelectedMajor();
+
+	s1 = new Major();
+
+	s1->SelectedMajor();
+
+	s1 = new CIT();
+
+	s1->SelectedMajor();
 
 
 	return 0;

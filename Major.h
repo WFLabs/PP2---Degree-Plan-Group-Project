@@ -1,7 +1,14 @@
+/*
 #pragma once
 #ifndef MAJORH
 #define MAJORH
 using namespace std;
+
+class Student : public Major
+{
+
+
+};
 
 class Major {  // abstract class
 public:
@@ -36,3 +43,4 @@ class ELECENG : public Major
 
 };
 #endif // !MAJORH
+*/
