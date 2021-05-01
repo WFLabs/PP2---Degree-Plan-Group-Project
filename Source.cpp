@@ -20,7 +20,7 @@ struct Schedule {
   void PassingStudent(Student *s);
 
 int main() {
-	vector<Student> vStudentCourses;
+	vector<Student *> vStudentCourses;
 
 	Student* s1 = new Student();
 
@@ -36,18 +36,18 @@ int main() {
 	
 	PassingStudent(s1);
 
-	cout << "We're now back in main()" << endl;
-	s1->SelectedMajor();
-	cout << "The address of the object is " << &s1 << endl;
+	cout << "The address of our object is " << &s1 << endl;
 
 	cout << "Now we're pulling from a vector" << endl;
-	vStudentCourses.push_back(*s1);						// Here's where I'm stuck. 
-	vStudentCourses.at(0).SelectedMajor();				// For whatever reason, it's creating a new obj.
+	vStudentCourses.push_back(s1);
+
+	vStudentCourses.at(0)->SelectedMajor();
+
+	cout << "The size of our vector is " << vStudentCourses.size() << endl;
 	cout << "The address of the object in the vector is  " << &vStudentCourses.at(0) << endl;
 
-
 	for (auto stud : vStudentCourses) {					// Same issue in a ranged loop.	
-		stud.SelectedMajor();							
+		stud->SelectedMajor();							
 	}
 
 	return 0;
