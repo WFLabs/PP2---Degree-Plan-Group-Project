@@ -18,6 +18,7 @@ struct Schedule {
 //  type ClassesPerMajor();
 //  type StudentSchedule();
   void PassingStudent(Student *s);
+  void PassingStudentVec(vector<Student*>& list);
 
 int main() {
 	vector<Student *> vStudentCourses;
@@ -50,11 +51,21 @@ int main() {
 		stud->SelectedMajor();							
 	}
 
+	PassingStudentVec(vStudentCourses);
+
 	return 0;
 }
 
 void PassingStudent(Student *s) {					// This demo function passes the object by reference
-	cout << "We've passed to a function" << endl;	
+	cout << "We've passed our object to a function" << endl;	
 	s->SelectedMajor();								
+	return;
+}
+
+void PassingStudentVec(vector<Student*>& list) {					// This demo function passes the object by reference
+	cout << "We've passed our vector to a function" << endl;
+	for (auto stud : list) {					// Same issue in a ranged loop.	
+		stud->SelectedMajor();
+	}
 	return;
 }
