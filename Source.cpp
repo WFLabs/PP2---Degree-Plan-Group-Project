@@ -1,12 +1,8 @@
 // PP2 - Degree Plan Group Project
 // Dwight Renner, Abel Desta, Addi Silva Rendon, Hunter Goins
 
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <string>
-#include <fstream>
-#include <vector>
+//Preprocessor Directives moved to header file
+
 #include "Student.h"
 using namespace std;
 

@@ -2,6 +2,11 @@
 #ifndef STUDENTH
 #define STUDENTH
 #include <string>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <fstream>
+#include <vector>
 using namespace std;
 
 class Student
