@@ -1,16 +1,18 @@
 #pragma once
 #ifndef STUDENTH
 #define STUDENTH
+#include <string>
 using namespace std;
 
 class Student
 {
-protected:
-	//string fname, lname;
-
-
 public:
 	virtual void SelectedMajor() const;
+	void SetName(string fn, string ln);
+	string GetName() const;
+protected:
+	string fname, lname;
+	string fullname;
 };
 
 class Major : public Student {

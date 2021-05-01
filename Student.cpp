@@ -15,6 +15,17 @@ void Student::SelectedMajor() const
 	cout << "You are not currently enrolled" << endl;
 }
 
+void Student::SetName(string fn, string ln) {
+	fname = fn;
+	lname = ln;
+	fullname = lname + ", " + fname;
+}
+
+string Student::GetName() const {
+	return fullname;
+}
+
+
 void Major::SelectedMajor() const
 {
 	cout << "You have yet to select a major" << endl;

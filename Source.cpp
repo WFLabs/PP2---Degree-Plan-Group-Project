@@ -8,63 +8,61 @@
 #include <fstream>
 #include <vector>
 #include "Student.h"
+using namespace std;
 
-struct Schedule {
-	string DayOfWeek;
-	int time24h, credithours;
+struct Schedule {						// i have no idea if this'll be useful
+	string DayOfWeek;					// or if it should be in the classes?
+	int time24h, credithours;			// thoughts?
 };
 
 //  type MajorList();
 //  type ClassesPerMajor();
 //  type StudentSchedule();
-  void PassingStudent(Student *s);
-  void PassingStudentVec(vector<Student*>& list);
+  void PassingStudent(Student *s);					// be sure to pass objects as pointers
+  void PassingStudentVec(vector<Student*>& list);	// be sure to pass vectors of pointer types by reference
 
 int main() {
 	vector<Student *> vStudentCourses;
 
-	Student* s1 = new Student();
+	Student* s1 = new Student();					// our student is still going through admissions
+	
+	s1->SetName("John", "Doe");						// We can give student a name
+	cout << s1->GetName() << endl;					// and print it
 
-	s1->SelectedMajor();
+	s1->SelectedMajor();		
 
-	s1 = new Major();
+	s1 = new Major();								// our student is enrolled but hasn't selected their major
 
-	s1->SelectedMajor();
+	s1->SelectedMajor();		
 
-	s1 = new CIT();
+	s1 = new CIT();									// our student has selected CIT
 
 	s1->SelectedMajor();
 	
-	PassingStudent(s1);
-
-	cout << "The address of our object is " << &s1 << endl;
+	PassingStudent(s1);								// here's a footprint for passing an object to a function
 
 	cout << "Now we're pulling from a vector" << endl;
-	vStudentCourses.push_back(s1);
+	vStudentCourses.push_back(s1);					// here's how to add new objects to our vector
+	vStudentCourses.at(0)->SelectedMajor();			// here's a footprint for how we call the functions from our vector
 
-	vStudentCourses.at(0)->SelectedMajor();
+	PassingStudentVec(vStudentCourses);				// here's a footprint for passing a vector to a function
 
-	cout << "The size of our vector is " << vStudentCourses.size() << endl;
-	cout << "The address of the object in the vector is  " << &vStudentCourses.at(0) << endl;
-
-	for (auto stud : vStudentCourses) {					// Same issue in a ranged loop.	
-		stud->SelectedMajor();							
+	for (auto stud : vStudentCourses) {				// here's a footprint for going thru our vector in a 
+		stud->SelectedMajor();						// ranged loop that will protect us from bad memory reads.
 	}
-
-	PassingStudentVec(vStudentCourses);
 
 	return 0;
 }
 
-void PassingStudent(Student *s) {					// This demo function passes the object by reference
+void PassingStudent(Student *s) {			// This demo function passes the object by reference
 	cout << "We've passed our object to a function" << endl;	
-	s->SelectedMajor();								
+	s->SelectedMajor();
 	return;
 }
 
-void PassingStudentVec(vector<Student*>& list) {					// This demo function passes the object by reference
+void PassingStudentVec(vector<Student*>& list) {	// This demo function passes the vector by reference
 	cout << "We've passed our vector to a function" << endl;
-	for (auto stud : list) {					// Same issue in a ranged loop.	
+	for (auto stud : list) {	
 		stud->SelectedMajor();
 	}
 	return;
